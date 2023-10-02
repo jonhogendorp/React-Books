@@ -5,12 +5,24 @@ import BookList from "./components/BookList";
 function App(){
     const [books, setBooks] = useState([]);
 
+    const editBookById = (id, newTitle) => {
+        const updatedBooks = books.map((book) => {
+            if (book.id === id){
+                return {...book, title: newTitle}
+            }
+            return book
+        });
+
+        setBooks(updatedBooks);
+    };
+
+
     const deleteBookById = (id) =>{
         const updatedBooks = books.filter((book) => {
             return book.id !== id ;
         });
         setBooks(updatedBooks);
-    } 
+    } ;
 
     const createBook = (title) => {
         console.log('Need to add book with; ', title)
@@ -19,12 +31,12 @@ function App(){
             {id:Math.round(Math.random() * 9999 ), 
             title}];
         setBooks(updatedBooks);
-    }
+    };
 
     return (
         <div className="app">
-            {books.length}
-            <BookList books={books} onDelete={deleteBookById}/>
+            <h1>Reading List</h1>
+            <BookList onEdit={editBookById} books={books} onDelete={deleteBookById}/>
             <BookCreate onCreate={createBook}  />
         </div>
     ) 
