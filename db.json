@@ -1,3 +1,24 @@
 {
-  "books": []
+  "books": [
+    {
+      "title": "LOTR",
+      "id": 1
+    },
+    {
+      "title": "Where",
+      "id": 2
+    },
+    {
+      "title": "Are ",
+      "id": 3
+    },
+    {
+      "title": "the ",
+      "id": 4
+    },
+    {
+      "title": "Photos",
+      "id": 5
+    }
+  ]
 }
